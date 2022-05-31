@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="name"
+            type="String" />
+        <variable
+            name="profileUrl"
+            type="String" />
+        <variable
+            name="email"
+            type="String" />
+        <variable
+            name="phone"
+            type="String" />
+        <variable
+            name="address"
+            type="String" />
+        <variable
+            name="gender"
+            type="String" />
+        <variable
+            name="weather"
+            type="String" />
+        <variable
+            name="weatherIconUrl"
+            type="String" />
+        <variable
+            name="backClickListener"
+            type="android.view.View.OnClickListener"/>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".UserDetailsFragment">
+
+        <ImageView
+            android:id="@+id/background_img"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/background_image_height_detail"
+            android:contentDescription="@string/profile_picture"
+            android:scaleType="centerCrop"
+            android:src="@drawable/profile_background"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/back_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/margin_normal"
+            android:onClick="@{backClickListener}"
+            android:src="@drawable/ic_back"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/margin_normal"
+            android:layout_marginEnd="@dimen/margin_normal"
+            app:cardElevation="5dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/background_img">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:context=".UserDetailsFragment">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/user_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/detail_name_margin"
+                    android:gravity="center"
+                    android:padding="@dimen/margin_normal"
+                    android:textSize="@dimen/title_text_size"
+                    android:textStyle="bold"
+                    android:text="@{name}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="Kosaksi Pasapugazh" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/gender_layout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/margin_large"
+                    android:layout_marginStart="@dimen/margin_large"
+                    android:layout_marginTop="@dimen/margin_normal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/user_name">
+
+                    <ImageView
+                        android:id="@+id/gender_icon"
+                        android:layout_width="@dimen/icon_image_height"
+                        android:layout_height="@dimen/icon_image_height"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:src="@drawable/ic_gender" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="@{gender}"
+                        android:layout_marginStart="@dimen/margin_large"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/gender_icon"
+                        app:layout_constraintTop_toTopOf="@id/gender_icon"
+                        app:layout_constraintBottom_toBottomOf="@id/gender_icon"
+                        tools:text="Male" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/email_layout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/margin_large"
+                    android:layout_marginStart="@dimen/margin_large"
+                    android:layout_marginTop="@dimen/margin_large"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/gender_layout">
+
+                    <ImageView
+                        android:id="@+id/email_icon"
+                        android:layout_width="@dimen/icon_image_height"
+                        android:layout_height="@dimen/icon_image_height"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:src="@drawable/ic_email" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/user_email"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="@{email}"
+                        android:layout_marginStart="@dimen/margin_large"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/email_icon"
+                        app:layout_constraintTop_toTopOf="@id/email_icon"
+                        app:layout_constraintBottom_toBottomOf="@id/email_icon"
+                        tools:text="Jegadheesh@tpk.com" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/phone_layout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/margin_large"
+                    android:layout_marginStart="@dimen/margin_large"
+                    android:layout_marginTop="@dimen/margin_large"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/email_layout">
+
+                    <ImageView
+                        android:id="@+id/phone_icon"
+                        android:layout_width="@dimen/icon_image_height"
+                        android:layout_height="@dimen/icon_image_height"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:src="@drawable/ic_phone" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="@{phone}"
+                        android:layout_marginStart="@dimen/margin_large"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/phone_icon"
+                        app:layout_constraintTop_toTopOf="@id/phone_icon"
+                        app:layout_constraintBottom_toBottomOf="@id/phone_icon"
+                        tools:text="(91)8765434567" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/address_layout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/margin_large"
+                    android:layout_marginStart="@dimen/margin_large"
+                    android:layout_marginTop="@dimen/margin_large"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/phone_layout">
+
+                    <ImageView
+                        android:id="@+id/address_icon"
+                        android:layout_width="@dimen/icon_image_height"
+                        android:layout_height="@dimen/icon_image_height"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:src="@drawable/ic_home" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="@{address}"
+                        android:layout_marginStart="@dimen/margin_large"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/address_icon"
+                        app:layout_constraintTop_toTopOf="@id/address_icon"
+                        app:layout_constraintBottom_toBottomOf="@id/address_icon"
+                        tools:text="Loss Angles, California USA" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/margin_large"
+                    android:layout_marginStart="@dimen/margin_large"
+                    android:layout_marginTop="@dimen/margin_large"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/address_layout">
+
+                    <ImageView
+                        android:id="@+id/weather_icon"
+                        android:layout_width="@dimen/icon_image_height"
+                        android:layout_height="@dimen/icon_image_height"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:imageFromUrl="@{weatherIconUrl}" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="@{weather}"
+                        android:layout_marginStart="@dimen/margin_large"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/weather_icon"
+                        app:layout_constraintTop_toTopOf="@id/weather_icon"
+                        app:layout_constraintBottom_toBottomOf="@id/weather_icon"
+                        tools:text="31° Partly cloudy" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.card.MaterialCardView>
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="@dimen/profile_image_height_detail"
+            android:layout_height="@dimen/profile_image_width_detail"
+            android:layout_marginStart="@dimen/margin_normal"
+            android:layout_marginEnd="@dimen/margin_normal"
+            app:cardElevation="5dp"
+            app:layout_constraintBottom_toBottomOf="@+id/background_img"
+            app:layout_constraintEnd_toEndOf="@+id/background_img"
+            app:layout_constraintStart_toStartOf="@+id/background_img"
+            app:layout_constraintTop_toBottomOf="@+id/background_img">
+            <ImageView
+                android:id="@+id/profile_image"
+                android:layout_width="@dimen/profile_image_height_detail"
+                android:layout_height="@dimen/profile_image_height_detail"
+                android:contentDescription="@string/profile_picture"
+                android:scaleType="centerCrop"
+                app:imageFromUrl="@{profileUrl}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@drawable/ic_phone" />
+        </com.google.android.material.card.MaterialCardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

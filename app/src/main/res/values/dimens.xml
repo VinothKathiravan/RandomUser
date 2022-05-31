@@ -1,0 +1,23 @@
+<resources>
+    <dimen name="card_side_margin">8dp</dimen>
+    <dimen name="card_bottom_margin">8dp</dimen>
+    <dimen name="card_top_margin">8dp</dimen>
+    <dimen name="card_elevation">2dp</dimen>
+    <dimen name="card_corner_radius">8dp</dimen>
+    <dimen name="profile_image_height">110dp</dimen>
+    <dimen name="background_image_height_detail">200dp</dimen>
+    <dimen name="profile_image_height_detail">100dp</dimen>
+    <dimen name="profile_image_width_detail">100dp</dimen>
+    <dimen name="detail_name_margin">60dp</dimen>
+    <dimen name="margin_normal">16dp</dimen>
+    <dimen name="margin_large">32dp</dimen>
+    <dimen name="margin_small">8dp</dimen>
+    <dimen name="margin_extra_small">4dp</dimen>
+    <dimen name="icon_image_height">30dp</dimen>
+    <dimen name="icon_image_width">30dp</dimen>
+
+    <dimen name="title_text_size">30sp</dimen>
+    <dimen name="home_title_size">18sp</dimen>
+    <dimen name="small_text">10sp</dimen>
+    <dimen name="normal_text">16sp</dimen>
+</resources>

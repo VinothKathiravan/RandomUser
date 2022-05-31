@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">RandomUser</string>
+    <string name="action_settings">Settings</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="random_user_fragment_label">Random User Fragment</string>
+    <string name="user_details_fragment_label">User Details Fragment</string>
+    <string name="home_page_title">Listing App</string>
+    <string name="search_hint">Search</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+    <string name="profile_picture">"Profile Picture "</string>
+
+    <string name="weather_app_api_key">32ec11decf1688e8e5debfc492657867</string>
+    <string name="weather_app_image_icon_url">"https://openweathermap.org/img/wn/%s@2x.png"</string>
+</resources>
