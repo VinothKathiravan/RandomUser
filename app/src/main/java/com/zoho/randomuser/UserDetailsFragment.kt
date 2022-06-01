@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.StringRes
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.navArgs
 import com.kwabenaberko.openweathermaplib.constant.Units
@@ -39,7 +40,7 @@ class UserDetailsFragment : Fragment() {
         binding.gender = args.userGender
 
         if (args.latitude.isNotEmpty() && args.longitude.isNotEmpty()) {
-            getWeatherUsingLocation(args.latitude.toDouble(), args.longitude.toDouble())
+            getWeatherUsingLocation(args.latitude.toDouble(), args.longitude.toDouble(), R.string.weather_app_image_icon_url)
         }
 
         binding.setBackClickListener {
@@ -50,12 +51,12 @@ class UserDetailsFragment : Fragment() {
 
     }
 
-    private fun getWeatherUsingLocation(lat: Double, long: Double) {
+    private fun getWeatherUsingLocation(lat: Double, long: Double, @StringRes res: Int) {
         openWeatherMapHelper.getCurrentWeatherByGeoCoordinates(lat, long, object :
             CurrentWeatherCallback {
             override fun onSuccess(currentWeather: CurrentWeather) {
                 binding.weather = "${currentWeather.main.temp}° ${currentWeather.weather[0].description}"
-                binding.weatherIconUrl = getString(R.string.weather_app_image_icon_url, currentWeather.weather[0].icon)
+                binding.weatherIconUrl = getString(res, currentWeather.weather[0].icon)
             }
 
             override fun onFailure(throwable: Throwable) {

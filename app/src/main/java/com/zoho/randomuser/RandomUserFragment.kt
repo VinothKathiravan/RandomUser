@@ -8,6 +8,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.StringRes
 import androidx.appcompat.widget.SearchView
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
@@ -92,16 +93,16 @@ class RandomUserFragment : Fragment() {
             return
         }
         fusedLocationClient.lastLocation.addOnSuccessListener {
-            getWeatherUsingLocation(it)
+            getWeatherUsingLocation(it, R.string.weather_app_image_icon_url)
         }
     }
 
-    private fun getWeatherUsingLocation(location: Location) {
+    private fun getWeatherUsingLocation(location: Location, @StringRes res: Int) {
         openWeatherMapHelper.getCurrentWeatherByGeoCoordinates(location.latitude, location.longitude, object : CurrentWeatherCallback {
             override fun onSuccess(currentWeather: CurrentWeather) {
                 binding.weather = "${currentWeather.main.temp}° ${currentWeather.name}"
                 binding.weatherDescription = currentWeather.weather[0].description
-                binding.weatherIconUrl = getString(R.string.weather_app_image_icon_url, currentWeather.weather[0].icon)
+                binding.weatherIconUrl = getString(res, currentWeather.weather[0].icon)
             }
 
             override fun onFailure(throwable: Throwable) {
