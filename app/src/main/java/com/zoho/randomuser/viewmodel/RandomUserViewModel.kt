@@ -17,7 +17,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class RandomUserViewModel @Inject constructor(
-    private val repository: RandomUserRepository
+    repository: RandomUserRepository
 ) : ViewModel() {
     private val queryFlow = MutableStateFlow("")
 

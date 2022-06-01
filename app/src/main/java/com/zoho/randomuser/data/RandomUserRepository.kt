@@ -10,13 +10,6 @@ class RandomUserRepository @Inject constructor(
     private val service : RandomUserService
     ) {
 
-    fun getSearchResultStream(): Flow<PagingData<RandomUser>> {
-        return Pager(
-            config = PagingConfig(enablePlaceholders = false, pageSize = NETWORK_PAGE_SIZE),
-            pagingSourceFactory = { RandomUserPagingSource(service, NETWORK_PAGE_SIZE) }
-        ).flow
-    }
-
     @OptIn(ExperimentalPagingApi::class)
     fun getRandomUserResultStream(): Pager<Int, RandomUser> {
         return Pager(

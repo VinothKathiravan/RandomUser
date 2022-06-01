@@ -1,6 +1,5 @@
 package com.zoho.randomuser
 
-import android.location.Location
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -15,9 +14,6 @@ import com.kwabenaberko.openweathermaplib.implementation.callback.CurrentWeather
 import com.kwabenaberko.openweathermaplib.model.currentweather.CurrentWeather
 import com.zoho.randomuser.databinding.FragmentUserDetailBinding
 
-/**
- * A simple [Fragment] subclass as the second destination in the navigation.
- */
 class UserDetailsFragment : Fragment() {
 
     private val args: UserDetailsFragmentArgs by navArgs()

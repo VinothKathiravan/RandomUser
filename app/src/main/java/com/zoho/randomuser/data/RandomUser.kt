@@ -14,12 +14,6 @@ data class RandomUser (
     val picture    : Picture?    = Picture(),
 )
 
-//data class Id (
-//    var name  : String? = null,
-//    var value : String? = null
-//
-//)
-
 data class Name (
     val title : String? = null,
     val first : String? = null,
@@ -27,27 +21,16 @@ data class Name (
 )
 
 data class Location (
-
     val city        : String?      = null,
     val state       : String?      = null,
     val country     : String?      = null,
     val coordinates : Coordinates? = Coordinates(),
-
-    )
-
-data class Coordinates (
-
-    val latitude  : String? = null,
-    val longitude : String? = null
-
 )
 
-//data class Dob (
-//
-//    @field:SerializedName("date" ) var date : String? = null,
-//    @field:SerializedName("age"  ) var age  : Int?    = null
-//
-//)
+data class Coordinates (
+    val latitude  : String? = null,
+    val longitude : String? = null
+)
 
 data class Picture (
     val large     : String? = null,
